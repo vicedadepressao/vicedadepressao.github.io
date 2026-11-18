@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Connecting TikTok · Vice Clips Publisher</title>
+  <link rel="icon" href="../../logo.jpg">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1>Connecting your TikTok account…</h1>
+    <p id="msg">Returning to Vice Clips Publisher.</p>
+  </main>
+  <script>
+    // Vice Clips Publisher runs on the team's own computer. TikTok requires an https redirect,
+    // so this page only forwards the authorization result (code + state) to the local app.
+    // Nothing is stored here.
+    const params = window.location.search;
+    if (params) {
+      window.location.replace('http://localhost:8080/tiktok/callback' + params);
+    } else {
+      document.getElementById('msg').textContent = 'Nothing to do here.';
+    }
+  </script>
+</body>
+</html>
